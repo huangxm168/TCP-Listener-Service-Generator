@@ -2,7 +2,7 @@
 
 **一键命令**
 
-    wget --no-check-certificate -O tcp.sh https://raw.githubusercontent.com/huangxm168/TCP-Listener-Service-Generator/main/tcp.sh && wget --no-check-certificate -O ufw.sh https://raw.githubusercontent.com/huangxm168/TCP-Listener-Service-Generator/main/ufw.sh && chmod +x tcp.sh ufw.sh && sudo ./tcp.sh
+    wget --no-check-certificate -O tcp.sh https://raw.githubusercontent.com/huangxm168/TCP-Listener-Service-Generator/main/tcp.sh && wget --no-check-certificate -O ufw.sh https://raw.githubusercontent.com/huangxm168/UFW-Allow-Listening-Ports-Automation/main/ufw.sh && chmod +x tcp.sh ufw.sh && sudo ./tcp.sh
 
 **脚本功能概述：**
 
