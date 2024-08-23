@@ -201,8 +201,8 @@ elif $ufw_installed && $iptables_installed && $nftables_installed; then
 elif $iptables_installed && ! $nftables_installed; then
     echo ""
     echo -e "${YELLOW}正在放行端口 $port...${RESET}"
-    iptables -A INPUT -p tcp --dport "$port" -j ACCEPT && apt install iptables-persistent -y > /dev/null 2>&1 && netfilter-persistent save > /dev/null 2>&1
-    echo -e "${GREEN}根据当前系统的防火墙运行状态，已成功通过 iptables 配置防火墙，允许端口 $port 的 TCP 入站流量。${RESET}"
+    sudo ./ufw.sh > /dev/null
+    echo -e "${GREEN}根据当前系统的防火墙运行状态，已成功安装 ufw 并通过其配置防火墙，允许端口 $port 的 TCP 入站流量。${RESET}"
 elif $nftables_installed && ! $iptables_installed; then
     echo ""
     echo -e "${YELLOW}正在放行端口 $port...${RESET}"
@@ -211,8 +211,8 @@ elif $nftables_installed && ! $iptables_installed; then
 elif $iptables_installed && $nftables_installed; then
     echo ""
     echo -e "${YELLOW}正在放行端口 $port...${RESET}"
-    iptables -A INPUT -p tcp --dport "$port" -j ACCEPT && apt install iptables-persistent -y > /dev/null 2>&1 && netfilter-persistent save > /dev/null 2>&1
-    echo -e "${GREEN}根据当前系统的防火墙运行状态，已成功通过 iptables 配置防火墙，允许端口 $port 的 TCP 入站流量。${RESET}"
+    sudo ./ufw.sh > /dev/null
+    echo -e "${GREEN}根据当前系统的防火墙运行状态，已成功安装 ufw 并通过其配置防火墙，允许端口 $port 的 TCP 入站流量。${RESET}"
 elif $firewalld_installed && $iptables_installed; then
     echo ""
     echo -e "${YELLOW}正在放行端口 $port...${RESET}"
