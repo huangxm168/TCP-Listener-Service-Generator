@@ -42,7 +42,7 @@ fi
 # 系统更新和安装依赖
 echo ""
 echo -e "${YELLOW}正在更新系统并安装环境依赖……${RESET}"
-apt update > /dev/null && apt upgrade -y > /dev/null && apt install socat -y  > /dev/null
+apt-get update > /dev/null && apt-get upgrade -y > /dev/null && apt-get install socat -y  > /dev/null
 if [ $? -ne 0 ]; then
     echo -e "${RED}系统和软件更新失败，请检查相关错误，或手动更新后再次运行脚本。${RESET}"
     echo ""
