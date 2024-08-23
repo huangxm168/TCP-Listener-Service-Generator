@@ -228,6 +228,11 @@ elif $firewalld_installed && $iptables_installed && $nftables_installed; then
     echo -e "${YELLOW}正在放行端口 $port...${RESET}"
     firewall-cmd --add-port="$port"/tcp --permanent > /dev/null 2>&1 && firewall-cmd --reload > /dev/null 2>&1
     echo -e "${GREEN}根据当前系统的防火墙运行状态，已成功通过 firewalld 配置防火墙，允许端口 $port 的 TCP 入站流量。${RESET}"
+elif ! $ufw_installed && ! $nftables_installed && ! $iptables_installed && ! $firewalld_installed; then
+    echo ""
+    echo -e "${YELLOW}正在放行端口 $port...${RESET}"
+    sudo ./ufw.sh > /dev/null
+    echo -e "${GREEN}根据当前系统的防火墙运行状态，已成功安装 ufw 并通过其配置防火墙，允许端口 $port 的 TCP 入站流量。${RESET}"
 else
     echo -e "${RED}没有检测到合适的防火墙或防火墙配置，请您自行操作来放行端口。${RESET}"
 fi
